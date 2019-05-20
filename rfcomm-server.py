@@ -48,7 +48,5 @@ while(serveron==True):
     print("Waiting for connection on RFCOMM channel %d" % port)
     client_connect()
     print("disconnected")
-
-client_sock.close()
-server_sock.close()
-print("all done")
+    client_sock.close()
+    server_sock.close()
