@@ -3,6 +3,13 @@
 # desc: sending the server IP to the client over rfcomm 
 from bluetooth import *
 import socket
+import subprocess
+import time
+
+# Subprocess has to be run after bluetoothservice is up, therefore the sleep is there
+time.sleep(5)
+cmd = 'hciconfig hci0 piscan'
+subprocess.check_output(cmd, shell = True )
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
