@@ -6,4 +6,5 @@
 Running the server on startup:
 <code>sudo nano /etc/rc.local</code>
 Added this before the exit line (bottom of the script)
+<br>
 <code>sudo bash -c 'python /home/pi/smartplay/bluez/bluez/pybluez-master/examples/simple/rfcomm-server.py > /home/pi/smartplay/blink.log 2>&1' &</code>
