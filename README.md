@@ -8,4 +8,4 @@
 <br>
 Added this before the exit line (bottom of the script)
 <br>
-<code>sudo bash -c 'python /home/pi/smartplay/bluez/bluez/pybluez-master/examples/simple/rfcomm-server.py > /home/pi/smartplay/blink.log 2>&1' &</code>
+<code>sudo bash -c 'python /YOUR-PATH/rfcomm-server.py > /YOUR-PATH/rfcomm-server.log 2>&1' &</code>
