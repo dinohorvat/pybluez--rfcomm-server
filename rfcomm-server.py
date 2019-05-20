@@ -16,6 +16,19 @@ def get_ip():
         s.close()
     return IP
 
+def client_connect():
+    client_sock, client_info = server_sock.accept()
+    print("Accepted connection from ", client_info)
+    client_sock.send(get_ip())
+    try:
+       while True:
+           data = client_sock.recv(1024)
+           if len(data) == 0: break
+           print("received [%s]" % data)
+           client_sock.send(get_ip())
+    except IOError:
+       pass
+
 server_sock=BluetoothSocket( RFCOMM )
 server_sock.bind(("",PORT_ANY))
 server_sock.listen(1)
@@ -30,22 +43,11 @@ advertise_service( server_sock, "SampleServer",
                    profiles = [ SERIAL_PORT_PROFILE ], 
 #                   protocols = [ OBEX_UUID ] 
                     )
-                   
-print("Waiting for connection on RFCOMM channel %d" % port)
-
-client_sock, client_info = server_sock.accept()
-print("Accepted connection from ", client_info)
-client_sock.send(get_ip())
-try:
-    while True:
-        data = client_sock.recv(1024)
-        if len(data) == 0: break
-        print("received [%s]" % data)
-        client_sock.send(get_ip())
-except IOError:
-    pass
-
-print("disconnected")
+serveron = True
+while(serveron==True):
+    print("Waiting for connection on RFCOMM channel %d" % port)
+    client_connect()
+    print("disconnected")
 
 client_sock.close()
 server_sock.close()
