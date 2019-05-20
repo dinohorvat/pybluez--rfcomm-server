@@ -3,8 +3,9 @@
 
 <h2>Sending the Raspberry Pi's IP to a client (Mobile phone) over bluetooth</h2>
 
-Running the server on startup:
+<h3>Running the server on startup:</h3>
 <code>sudo nano /etc/rc.local</code>
+<br>
 Added this before the exit line (bottom of the script)
 <br>
 <code>sudo bash -c 'python /home/pi/smartplay/bluez/bluez/pybluez-master/examples/simple/rfcomm-server.py > /home/pi/smartplay/blink.log 2>&1' &</code>
