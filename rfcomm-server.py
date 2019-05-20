@@ -1,9 +1,6 @@
 # file: rfcomm-server.py
-# auth: Albert Huang <albert@csail.mit.edu>
-# desc: simple demonstration of a server application that uses RFCOMM sockets
-#
-# $Id: rfcomm-server.py 518 2007-08-10 07:20:07Z albert $
-
+# auth: Dino Horvat <dxh3401@rit.edu>
+# desc: sending the server IP to the client over rfcomm 
 from bluetooth import *
 import socket
 
